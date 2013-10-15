@@ -950,46 +950,13 @@ FFMPEG_PHP_METHOD(ffmpeg_movie, hasVideo)
 static const char* _php_get_codec_name(ff_movie_context *ffmovie_ctx, int type)
 {
     AVCodecContext *decoder_ctx = NULL;
-    AVCodec *p = NULL;
-    const char *codec_name;
-    char buf1[32];
 
     decoder_ctx = _php_get_decoder_context(ffmovie_ctx, type);
     if (!decoder_ctx) {
         return NULL;
     }
-
-    p = avcodec_find_decoder(decoder_ctx->codec_id);
-
-    /* Copied from libavcodec/utils.c::avcodec_string */
-    if (p) {
-        codec_name = p->name;
-        if (decoder_ctx->codec_id == CODEC_ID_MP3) {
-            if (decoder_ctx->sub_id == 2)
-                codec_name = "mp2";
-            else if (decoder_ctx->sub_id == 1)
-                codec_name = "mp1";
-        }
-    } else if (decoder_ctx->codec_id == CODEC_ID_MPEG2TS) {
-        /* fake mpeg2 transport stream codec (currently not registered) */
-        codec_name = "mpeg2ts";
-    } else if (decoder_ctx->codec_name[0] != '\0') {
-        codec_name = decoder_ctx->codec_name;
-    } else {
-        /* output avi tags */
-        if (decoder_ctx->codec_type == AVMEDIA_TYPE_VIDEO) {
-            snprintf(buf1, sizeof(buf1), "%c%c%c%c",
-                    decoder_ctx->codec_tag & 0xff,
-                    (decoder_ctx->codec_tag >> 8) & 0xff,
-                    (decoder_ctx->codec_tag >> 16) & 0xff,
-                    (decoder_ctx->codec_tag >> 24) & 0xff);
-        } else {
-            snprintf(buf1, sizeof(buf1), "0x%04x", decoder_ctx->codec_tag);
-        }
-        codec_name = buf1;
-    }
     
-    return codec_name;
+    return avcodec_get_name(decoder_ctx->codec_id);
 } 
 /* }}} */
 

@@ -61,7 +61,7 @@ int img_convert(AVPicture *dst, int dst_pix_fmt,
         return 2;
     }
 
-    sws_scale(sws_ctx, src->data, src->linesize, 0, src_height, dst->data, dst->linesize);
+    sws_scale(sws_ctx, (const uint8_t *const *)(src->data), src->linesize, 0, src_height, dst->data, dst->linesize);
     sws_freeContext(sws_ctx);
 
     return 0;
@@ -83,7 +83,7 @@ void img_resample(ImgReSampleContext * context, AVPicture * pxOut, const AVPictu
         shiftedInput.linesize[0] = pxIn->linesize[0];
         shiftedInput.linesize[1] = pxIn->linesize[1];
         shiftedInput.linesize[2] = pxIn->linesize[2];
-        sws_scale(context->context, (uint8_t**)shiftedInput.data, 
+        sws_scale(context->context, (const uint8_t *const *)shiftedInput.data, 
                 (int*)shiftedInput.linesize, 0, context->height - context->bandBottom - 
                 context->bandTop, pxOut->data, pxOut->linesize);
     }
