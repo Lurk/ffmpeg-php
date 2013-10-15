@@ -1,0 +1,2 @@
+001+ Fatal error: failed to convert frame to gd image in /src/ffmpeg-php-code/ffmpeg-php/tests/getFrame.php on line 8
+001- ffmpeg getFrame(): md5 = f8eb6d231d353e8d98cf76f1fcf960c3

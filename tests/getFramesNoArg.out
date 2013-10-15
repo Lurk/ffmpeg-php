@@ -1,0 +1,1 @@
+Fatal error: failed to convert frame to gd image in /src/ffmpeg-php-code/ffmpeg-php/tests/getFramesNoArg.php on line 9

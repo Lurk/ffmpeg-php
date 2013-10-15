@@ -1,0 +1,11 @@
+
+---- EXPECTED OUTPUT
+ffmpeg getDuration(): 9.60
+ffmpeg getDuration(): 9.60
+---- ACTUAL OUTPUT
+Warning: Persistent movies have been disabled in php.ini in /src/ffmpeg-php-code/ffmpeg-php/tests/persistentMovie.php on line 2
+
+Warning: Persistent movies have been disabled in php.ini in /src/ffmpeg-php-code/ffmpeg-php/tests/persistentMovie.php on line 3
+ffmpeg getDuration(): 9.60
+ffmpeg getDuration(): 9.60
+---- FAILED

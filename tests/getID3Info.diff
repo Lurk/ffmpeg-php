@@ -1,0 +1,5 @@
+002- ffmpeg getArtist(): Alexander Thomas
+003- ffmpeg getAlbum(): MP3 test files (http://www.dr-lex.be/software/testsounds.html#Tones)
+004- ffmpeg getGenre(): Sound Clip
+005- ffmpeg getTrackNumber(): 3
+006- ffmpeg getYear(): 2008

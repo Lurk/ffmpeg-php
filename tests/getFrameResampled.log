@@ -1,0 +1,6 @@
+
+---- EXPECTED OUTPUT
+ffmpeg getFrameResampled(): md5 = 9901af04cb0a276b11fa73eebb7df291
+---- ACTUAL OUTPUT
+Fatal error: failed to convert frame to gd image in /src/ffmpeg-php-code/ffmpeg-php/tests/getFrameResampled.php on line 9
+---- FAILED
