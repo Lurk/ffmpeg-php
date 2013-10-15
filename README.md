@@ -6,9 +6,9 @@ this is copy of http://sourceforge.net/p/ffmpeg-php/code/HEAD/tree/trunk/ffmpeg-
 instalation 
 ----------
 
-phpize
-./configure && make
-sudo make install
+	phpize
+	./configure && make
+	sudo make install
 
 then add to your php.ini 
 > extension=ffmpeg.so
